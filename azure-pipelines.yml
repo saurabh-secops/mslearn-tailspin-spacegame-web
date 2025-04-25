@@ -18,11 +18,14 @@ steps:
     inputs:
       packageType: sdk
       version: '6.x' # Use the latest .NET SDK 6.x
+  - script: npm cache clean --force
+    displayName: 'Clear npm cache'
 
   - task: Npm@1
     displayName: 'Run NPM install'
     inputs:
       verbose: false
+
   - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
     displayName: 'Complie SSAS assets'
  
